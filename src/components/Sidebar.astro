@@ -1,0 +1,104 @@
+---
+import {
+DiscordLogoIcon,
+GitHubLogoIcon,
+HomeIcon,
+InstagramLogoIcon,
+LinkedInLogoIcon,
+TwitterLogoIcon,
+} from "@radix-ui/react-icons"
+import type { IconProps } from "@radix-ui/react-icons/dist/types"
+
+export interface UrlItem {
+    url: string;
+    name: string;
+    icon: React.ForwardRefExoticComponent<
+        IconProps & React.RefAttributes<SVGSVGElement>
+    >;
+}
+
+export type UrlItemRecord = Record<string, UrlItem>;
+
+export interface JsonData {
+    name: string;
+    profesion: string;
+    pages: UrlItemRecord;
+    socials: UrlItemRecord;
+}
+
+const jsonSimulation: JsonData = {
+    name: "Jesus Oyola",
+    profesion: "Full-stack developer",
+    pages: {
+        home: {
+            url: "/",
+            name: "Home",
+            icon: HomeIcon,
+        },
+    },
+    socials: {
+        github: {
+            name: "Github",
+            url: "https://github.com/Jes015",
+            icon: GitHubLogoIcon,
+        },
+        linkedIn: {
+            name: "LinkedIn",
+            url: "https://github.com/Jes015",
+            icon: LinkedInLogoIcon,
+        },
+        instagram: {
+            name: "Instagram",
+            url: "https://github.com/Jes015",
+            icon: InstagramLogoIcon,
+        },
+        x: {
+            name: "Twitter",
+            url: "https://github.com/Jes015",
+            icon: TwitterLogoIcon,
+        },
+        discord: {
+            name: "Discord",
+            url: "https://github.com/Jes015",
+            icon: DiscordLogoIcon,
+        },
+    },
+} as const; // This is temporal, while we add the json data
+---
+
+<aside
+    class="flex flex-col bg-zinc-50 p-3 [flex-basis:auto] flex-shrink-0 border-r border-r-neutral-100"
+>
+    <header>
+        <div class="flex items-center gap-1">
+            <div
+                class="w-10 aspect-square rounded-full bg-slate-300 border border-neutral-100"
+            >
+            </div>
+            <div class="flex flex-col pt-1">
+                <span class="font-bold leading-4 text-[0.9rem]"
+                    >{jsonSimulation.name}</span
+                >
+                <span class="text-gray-600 capitalize"
+                    >{jsonSimulation.profesion}</span
+                >
+            </div>
+        </div>
+    </header>
+    <div class="flex-grow"></div>
+    <footer class="flex gap-1 justify-center">
+        {
+            Object.values(jsonSimulation.socials).map((networkData) => (
+                <a
+                    class="capitalize font-[500] underline text-sm hover:scale-150 [transition-duration:0.25s]"
+                    target="_blank"
+                    rel="noopener"
+                    href={networkData.url}
+                    title={networkData.name}
+                >
+                    <networkData.icon width={22} height={22}/>
+                </a>
+            ))
+        }
+    </footer>
+</aside>
