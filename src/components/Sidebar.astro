@@ -1,10 +1,13 @@
 ---
 import {
+DesktopIcon,
 DiscordLogoIcon,
 GitHubLogoIcon,
 HomeIcon,
 InstagramLogoIcon,
 LinkedInLogoIcon,
+MagicWandIcon,
+ReaderIcon,
 TwitterLogoIcon,
 } from "@radix-ui/react-icons"
 import type { IconProps } from "@radix-ui/react-icons/dist/types"
@@ -21,6 +24,7 @@ export type UrlItemRecord = Record<string, UrlItem>;
 
 export interface JsonData {
     name: string;
+    openToJob: boolean;
     profesion: string;
     pages: UrlItemRecord;
     socials: UrlItemRecord;
@@ -29,11 +33,27 @@ export interface JsonData {
 const jsonSimulation: JsonData = {
     name: "Jesus Oyola",
     profesion: "Full-stack developer",
+    openToJob: true,
     pages: {
         home: {
             url: "/",
             name: "Home",
             icon: HomeIcon,
+        },
+        projects: {
+            url: "/projects",
+            name: "Projects",
+            icon: MagicWandIcon,
+        },
+        blog: {
+            url: "/blog",
+            name: "Blog",
+            icon: ReaderIcon,
+        },
+        workspace: {
+            url: "/workspace",
+            name: "Workspace",
+            icon: DesktopIcon,
         },
     },
     socials: {
@@ -67,7 +87,7 @@ const jsonSimulation: JsonData = {
 ---
 
 <aside
-    class="flex flex-col bg-zinc-50 p-3 [flex-basis:auto] flex-shrink-0 border-r border-r-neutral-100"
+    class="flex flex-col gap-2 min-w-80 bg-zinc-50 p-3 pb-0 [flex-basis:auto] flex-shrink-0 border-r border-r-neutral-100"
 >
     <header>
         <div class="flex items-center gap-1">
@@ -85,20 +105,61 @@ const jsonSimulation: JsonData = {
             </div>
         </div>
     </header>
-    <div class="flex-grow"></div>
-    <footer class="flex gap-1 justify-center">
-        {
-            Object.values(jsonSimulation.socials).map((networkData) => (
-                <a
-                    class="capitalize font-[500] underline text-sm hover:scale-150 [transition-duration:0.25s]"
-                    target="_blank"
-                    rel="noopener"
-                    href={networkData.url}
-                    title={networkData.name}
-                >
-                    <networkData.icon width={22} height={22}/>
-                </a>
-            ))
-        }
+    <div class="flex-grow">
+        <header>
+            <span class="capitalize text-gray-600 font-medium text-xs">
+                Routes
+            </span>
+        </header>
+        <div>
+            <nav>
+                <ul class="flex flex-col gap-1">
+                    {
+                        Object.values(jsonSimulation.pages).map((page) => (
+                            <li>
+                                <a
+                                    class="border border-transparent border-neutral-400 flex text-sm gap-2 font-medium hover:bg-zinc-300 transition-all [trasition-duration:0.1s] items-center p-2 w-full capitalize  rounded-md"
+                                    href={page.url}
+                                >
+                                    <page.icon width={18} height={18} />
+                                    {page.name}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <footer class="flex flex-col items-center gap-2">
+        <div class="flex gap-1">
+            {
+                Object.values(jsonSimulation.socials).map((networkData) => (
+                    <a
+                        class="capitalize font-[500] underline text-sm hover:scale-150 [transition-duration:0.25s]"
+                        target="_blank"
+                        rel="noopener"
+                        href={networkData.url}
+                        title={networkData.name}
+                        aria-label={`Go to ${jsonSimulation.name}'s ${networkData.name}`}
+                    >
+                        <networkData.icon
+                            aria-hidden="true"
+                            width={24}
+                            height={24}
+                        />
+                    </a>
+                ))
+            }
+        </div>
+        <div class="text-gray-600 text-xs">
+            <span class="">Based on</span>
+            <a
+                rel="noopener noreferrer"
+                target="_blank"
+                class="font-medium underline"
+                href="https://onur.dev/">Onur portfolio</a
+            >
+        </div>
     </footer>
 </aside>
