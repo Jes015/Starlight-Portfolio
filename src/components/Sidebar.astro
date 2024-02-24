@@ -1,107 +1,38 @@
 ---
 import {
-DesktopIcon,
-DiscordLogoIcon,
-GitHubLogoIcon,
-HomeIcon,
-InstagramLogoIcon,
-LinkedInLogoIcon,
-MagicWandIcon,
-ReaderIcon,
-TwitterLogoIcon,
+HamburgerMenuIcon
 } from "@radix-ui/react-icons"
-import type { IconProps } from "@radix-ui/react-icons/dist/types"
 
-export interface UrlItem {
-    url: string;
-    name: string;
-    icon: React.ForwardRefExoticComponent<
-        IconProps & React.RefAttributes<SVGSVGElement>
-    >;
-}
-
-export type UrlItemRecord = Record<string, UrlItem>;
-
-export interface JsonData {
-    name: string;
-    openToJob: boolean;
-    profesion: string;
-    pages: UrlItemRecord;
-    socials: UrlItemRecord;
-}
-
-const jsonSimulation: JsonData = {
-    name: "Jesus Oyola",
-    profesion: "Full-stack developer",
-    openToJob: true,
-    pages: {
-        home: {
-            url: "/",
-            name: "Home",
-            icon: HomeIcon,
-        },
-        projects: {
-            url: "/projects",
-            name: "Projects",
-            icon: MagicWandIcon,
-        },
-        blog: {
-            url: "/blog",
-            name: "Blog",
-            icon: ReaderIcon,
-        },
-        workspace: {
-            url: "/workspace",
-            name: "Workspace",
-            icon: DesktopIcon,
-        },
-    },
-    socials: {
-        github: {
-            name: "Github",
-            url: "https://github.com/Jes015",
-            icon: GitHubLogoIcon,
-        },
-        linkedIn: {
-            name: "LinkedIn",
-            url: "https://github.com/Jes015",
-            icon: LinkedInLogoIcon,
-        },
-        instagram: {
-            name: "Instagram",
-            url: "https://github.com/Jes015",
-            icon: InstagramLogoIcon,
-        },
-        x: {
-            name: "Twitter",
-            url: "https://github.com/Jes015",
-            icon: TwitterLogoIcon,
-        },
-        discord: {
-            name: "Discord",
-            url: "https://github.com/Jes015",
-            icon: DiscordLogoIcon,
-        },
-    },
-} as const; // This is temporal, while we add the json data
+import { jsonData } from '@/data/'
 ---
 
+<label 
+    for="hamburger-menu-input" 
+    class="md:hidden absolute top-3 right-3 z-50 cursor-pointer bg-white"
+    aria-label="Open sidebar menu"
+>
+    <HamburgerMenuIcon aria-hidden="true" width={28} height={28} className="p-1 border rounded-md w-8 h-8"/>
+</label>
+<input id="hamburger-menu-input" aria-hidden="true" class="input hidden" type="checkbox" />
+
 <aside
-    class="flex flex-col gap-2 min-w-80 bg-zinc-50 p-3 pb-0 [flex-basis:auto] flex-shrink-0 border-r border-r-neutral-100"
+    class="aside absolute left-[-100%] h-full flex md:relative md:left-0 flex-col gap-2 w-full md:max-w-72 bg-zinc-50 p-3 pb-0 [flex-basis:auto] flex-shrink-0 border-r border-r-neutral-100 transition-all [transition-duration:0.5s]"
 >
     <header>
-        <div class="flex items-center gap-1">
-            <div
-                class="w-10 aspect-square rounded-full bg-slate-300 border border-neutral-100"
-            >
-            </div>
-            <div class="flex flex-col pt-1">
-                <span class="font-bold leading-4 text-[0.9rem]"
-                    >{jsonSimulation.name}</span
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1">
+                <div
+                    class="w-10 aspect-square rounded-full bg-slate-300 border border-neutral-100"
                 >
-                <span class="text-gray-600 capitalize"
-                    >{jsonSimulation.profesion}</span
-                >
+                </div>
+                <div class="flex flex-col pt-1">
+                    <span class="font-bold leading-4 text-[0.9rem]"
+                        >{jsonData.name}</span
+                    >
+                    <span class="text-gray-600 capitalize"
+                        >{jsonData.profesion}</span
+                    >
+                </div>
             </div>
         </div>
     </header>
@@ -115,7 +46,7 @@ const jsonSimulation: JsonData = {
             <nav>
                 <ul class="flex flex-col gap-1">
                     {
-                        Object.values(jsonSimulation.pages).map((page) => (
+                        Object.values(jsonData.pages).map((page) => (
                             <li>
                                 <a
                                     class="border border-transparent border-neutral-400 flex text-sm gap-2 font-medium hover:bg-zinc-300 transition-all [trasition-duration:0.1s] items-center p-2 w-full capitalize  rounded-md"
@@ -131,17 +62,17 @@ const jsonSimulation: JsonData = {
             </nav>
         </div>
     </div>
-    <footer class="flex flex-col items-center gap-2">
+    <footer class="flex flex-col items-center gap-2 mt-2">
         <div class="flex gap-1">
             {
-                Object.values(jsonSimulation.socials).map((networkData) => (
+                Object.values(jsonData.socials).map((networkData) => (
                     <a
                         class="capitalize font-[500] underline text-sm hover:scale-150 [transition-duration:0.25s]"
                         target="_blank"
                         rel="noopener"
                         href={networkData.url}
                         title={networkData.name}
-                        aria-label={`Go to ${jsonSimulation.name}'s ${networkData.name}`}
+                        aria-label={`Go to ${jsonData.name}'s ${networkData.name}`}
                     >
                         <networkData.icon
                             aria-hidden="true"
@@ -163,3 +94,9 @@ const jsonSimulation: JsonData = {
         </div>
     </footer>
 </aside>
+
+<style>
+    .input:checked + aside {
+        left: 0;
+    }
+</style>
