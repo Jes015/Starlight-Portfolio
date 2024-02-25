@@ -10,7 +10,16 @@ import {
     TwitterLogoIcon
 } from "@radix-ui/react-icons"
 import type { IconProps } from "@radix-ui/react-icons/dist/types"
-    
+
+export interface Action {
+    title: string
+    subTitle: string
+    date: Date
+    type: 'blog' | 'project' | 'workspace' | 'other'
+}
+
+export type ActionArray = Action[]
+
 export interface UrlItem {
     url: string
     name: string
@@ -24,15 +33,22 @@ export type UrlItemRecord = Record<string, UrlItem>
 export interface JsonData {
     name: string
     openToJob: boolean
-    profesion: string
+    profession: string
+    latestActions: ActionArray
     pages: UrlItemRecord
     socials: UrlItemRecord
 }
 
 export const jsonData: JsonData = {
     name: "Jesus Oyola",
-    profesion: "Full-stack developer",
+    profession: "Full-stack developer",
     openToJob: true,
+    latestActions: [
+        { title: 'How to be happy', subTitle: 'Updated a new blog', date: new Date('12/12/2024'), type: 'other' },
+        { title: 'How to be happy', subTitle: 'Updated a new blog', date: new Date('12/12/2024'), type: 'other' },
+        { title: 'How to be happy', subTitle: 'Updated a new blog', date: new Date('12/12/2024'), type: 'other' },
+        { title: 'How to be happy', subTitle: 'Updated a new blog', date: new Date('12/12/2024'), type: 'other' }
+    ],
     pages: {
         home: {
             url: "/",
