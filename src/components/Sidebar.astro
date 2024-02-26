@@ -1,4 +1,5 @@
 ---
+import { SidebarAnchor } from '@/components/SidebarAnchor.tsx'
 import {
 DesktopIcon,
 HamburgerMenuIcon,
@@ -56,13 +57,10 @@ import SidebarSection from "./SidebarSection.astro"
             {
                 Object.values(jsonData.pages).map((page) => (
                     <li>
-                        <a
-                            class="border border-transparent border-neutral-400 flex text-sm gap-2 font-medium hover:bg-neutral-200 transition-all [trasition-duration:0.1s] items-center p-2 w-full capitalize rounded-md"
-                            href={page.url}
-                        >
+                        <SidebarAnchor client:load pageUrl={page.url}>
                             <page.icon width={18} height={18} />
                             {page.name}
-                        </a>
+                        </SidebarAnchor>
                     </li>
                 ))
             }
