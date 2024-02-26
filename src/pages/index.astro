@@ -1,7 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Anchor from '@/components/ui/Anchor.astro'
+import HighlightText from '@/components/ui/HighlightText.astro'
+import { jsonData } from '@/data'
+import Layout from '@/layouts/Layout.astro'
 ---
 
-<Layout title="Welcome to Astro.">
-		aaaa
+<Layout title="Home">
+	<header>
+		<h1 class="text-4xl font-semibold">Hiii</h1>
+	</header>
+	<div>
+		<p class="text-pretty">I'm Jesus, a software developer from Colombia. Focused on <HighlightText>Javascript</HighlightText> and <HighlightText>Typescript</HighlightText>. My main techs are <HighlightText>React</HighlightText>, <HighlightText>Astro</HighlightText> and <HighlightText>Nest</HighlightText>. <Anchor href={jsonData.pages.projects.url}>Check out my stack</Anchor>.</p>
+	</div>
+
 </Layout>
