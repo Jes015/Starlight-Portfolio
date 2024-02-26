@@ -1,0 +1,18 @@
+---
+const { title } = Astro.props
+---
+
+<section class="overflow-auto">
+    <header>
+        <span class="capitalize text-gray-600 font-medium text-xs">
+            {title}
+        </span>
+    </header>
+    <div>
+        <nav>
+            <ul class="flex flex-col gap-1">
+                <slot />
+            </ul>
+        </nav>
+    </div>
+</section>

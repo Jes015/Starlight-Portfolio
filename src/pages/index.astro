@@ -1,7 +1,34 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Anchor from "@/components/ui/Anchor.astro"
+import HighlightText from "@/components/ui/HighlightText.astro"
+import { jsonData } from "@/data"
+import Layout from "@/layouts/Layout.astro"
 ---
 
-<Layout title="Welcome to Astro.">
-		aaaa
+<Layout title="Home">
+	<header>
+		<h1 class="text-4xl font-semibold">Hiii</h1>
+	</header>
+	<div>
+		<p class=" mb-3">
+			I'm Jesus, a software developer from Colombia with over 2 years of
+			experience dedicated to studying and practicing <HighlightText>web development</HighlightText>. My
+			main focus is on <HighlightText>JavaScript</HighlightText> and <HighlightText>TypeScript</HighlightText>, and I excel in using
+			technologies like <HighlightText>React</HighlightText>, <HighlightText>Astro</HighlightText>, and <HighlightText>Nest</HighlightText>. 
+			<Anchor href={jsonData.pages.projects.url}>Check out my projects</Anchor>
+			to see concrete examples of my work and skills.
+		</p>
+		<p class="text-pretty mb-3">
+			Outside of the professional realm, I channel my creativity through
+			music. Production, composition, and singing are activities I greatly
+			enjoy and consider essential for maintaining balance in my life as a
+			developer.
+		</p>
+		<p>
+			I'm confident that my passion, technical skills, and commitment to
+			excellence make me a valuable asset to any team. I look forward to
+			the opportunity to contribute my experience and creativity to
+			exciting projects!
+		</p>
+	</div>
 </Layout>

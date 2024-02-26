@@ -1,7 +1,14 @@
 ---
-import { DesktopIcon, HamburgerMenuIcon, MagicWandIcon, ReaderIcon, RocketIcon } from "@radix-ui/react-icons"
+import {
+DesktopIcon,
+HamburgerMenuIcon,
+MagicWandIcon,
+ReaderIcon,
+RocketIcon,
+} from "@radix-ui/react-icons"
 
 import { jsonData } from "@/data/"
+import SidebarSection from "./SidebarSection.astro"
 ---
 
 <label
@@ -45,79 +52,73 @@ import { jsonData } from "@/data/"
         </div>
     </header>
     <div class="flex flex-col gap-6 flex-grow">
-        <section>
-            <header>
-                <span class="capitalize text-gray-600 font-medium text-xs">
-                    Routes
-                </span>
-            </header>
-            <div>
-                <nav>
-                    <ul class="flex flex-col gap-1">
-                        {
-                            Object.values(jsonData.pages).map((page) => (
-                                <li>
-                                    <a
-                                        class="border border-transparent border-neutral-400 flex text-sm gap-2 font-medium hover:bg-zinc-300 transition-all [trasition-duration:0.1s] items-center p-2 w-full capitalize  rounded-md"
-                                        href={page.url}
-                                    >
-                                        <page.icon width={18} height={18} />
-                                        {page.name}
-                                    </a>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </nav>
-            </div>
-        </section>
-        <section class="overflow-auto">
-            <header>
-                <span class="capitalize text-gray-600 font-medium text-xs">
-                    Latest
-                </span>
-            </header>
-            <div>
-                <nav>
-                    <ul class="flex flex-col gap-1">
-                        {
-                            jsonData.latestActions.map((action) => (
-                                <li>
-                                    <a
-                                        class="flex items-center gap-2 text-sm font-medium hover:bg-zinc-300 transition-all [trasition-duration:0.1s] p-2 w-full capitalize  rounded-md"
-                                        href="/"
-                                    >
-                                        {
-                                            action.type === 'blog' && <ReaderIcon className="text-sm aspect-square" width={20} height={20} />
-                                        }
-                                        {
-                                            action.type === 'project' && <MagicWandIcon className="text-sm aspect-square" width={20} height={20} />
-                                        }
-                                        {
-                                            action.type === 'workspace' && <DesktopIcon className="text-sm aspect-square" width={20} height={20} />
-                                        }
-                                        {
-                                            action.type === 'other' && <RocketIcon className="text-sm aspect-square" width={20} height={20} />
-                                        }
-                                        <div class="flex flex-col w-full">
-                                            <header class="flex justify-between leading-3 text-gray-500 font-medium text-[0.6rem]">
-                                                <h3>{action.subTitle}</h3>
-                                                <span>{action.date.toDateString()}</span>
-                                            </header>
-                                            <div>
-                                                <span class="leading-4">
-                                                    {action.title}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </nav>
-            </div>
-        </section>
+        <SidebarSection title="Routes">
+            {
+                Object.values(jsonData.pages).map((page) => (
+                    <li>
+                        <a
+                            class="border border-transparent border-neutral-400 flex text-sm gap-2 font-medium hover:bg-neutral-200 transition-all [trasition-duration:0.1s] items-center p-2 w-full capitalize rounded-md"
+                            href={page.url}
+                        >
+                            <page.icon width={18} height={18} />
+                            {page.name}
+                        </a>
+                    </li>
+                ))
+            }
+        </SidebarSection>
+        <SidebarSection title="Latest">
+            {
+                jsonData.latestActions.map((action) => (
+                    <li>
+                        <a
+                            class="flex items-center gap-2 text-sm font-medium hover:bg-zinc-300 transition-all [trasition-duration:0.1s] p-2 w-full capitalize  rounded-md"
+                            href="/"
+                        >
+                            {action.type === "blog" && (
+                                <ReaderIcon
+                                    className="text-sm aspect-square"
+                                    width={20}
+                                    height={20}
+                                />
+                            )}
+                            {action.type === "project" && (
+                                <MagicWandIcon
+                                    className="text-sm aspect-square"
+                                    width={20}
+                                    height={20}
+                                />
+                            )}
+                            {action.type === "workspace" && (
+                                <DesktopIcon
+                                    className="text-sm aspect-square"
+                                    width={20}
+                                    height={20}
+                                />
+                            )}
+                            {action.type === "other" && (
+                                <RocketIcon
+                                    className="text-sm aspect-square"
+                                    width={20}
+                                    height={20}
+                                />
+                            )}
+                            <div class="flex flex-col w-full">
+                                <header class="flex justify-between leading-3 text-gray-500 font-medium text-[0.6rem]">
+                                    <h3>{action.subTitle}</h3>
+                                    <span>{action.date.toDateString()}</span>
+                                </header>
+                                <div>
+                                    <span class="leading-4">
+                                        {action.title}
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                ))
+            }
+        </SidebarSection>
     </div>
     <footer class="flex flex-col items-center gap-2 mt-2">
         <div class="flex gap-1">
