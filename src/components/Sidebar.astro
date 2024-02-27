@@ -14,7 +14,7 @@ import SidebarSection from "./SidebarSection.astro"
 
 <label
     for="hamburger-menu-input"
-    class="md:hidden absolute top-3 right-3 z-50 cursor-pointer bg-white"
+    class="md:hidden absolute top-3 right-3 z-[500] cursor-pointer bg-white"
     aria-label="Open sidebar menu"
 >
     <HamburgerMenuIcon
@@ -32,7 +32,7 @@ import SidebarSection from "./SidebarSection.astro"
 />
 
 <aside
-    class="aside absolute left-[-100%] h-full flex md:relative md:left-0 flex-col gap-2 w-full md:max-w-72 bg-zinc-50 p-3 pb-0 [flex-basis:auto] flex-shrink-0 border-r border-r-neutral-100 transition-all [transition-duration:0.5s]"
+    class="z-50 aside absolute left-[-100%] h-full flex md:relative md:left-0 flex-col gap-2 w-full md:max-w-72 bg-zinc-50 p-3 pb-0 [flex-basis:auto] flex-shrink-0 border-r border-r-neutral-100 transition-all [transition-duration:0.5s]"
 >
     <header>
         <div class="flex items-center justify-between">
