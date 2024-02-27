@@ -7,7 +7,7 @@ export const Filters: BaseComponentType = (props) => {
        <div {...props}>
         <TextField>
             <TextField.Label>Techs</TextField.Label>
-            <MultipleSelect defaultValues={[{ name: 'React', color: '#c0e2fd61', isSelected: false}, { name: 'React2', color: '#c0e2fd61', isSelected: false}, { name: 'Astro', color: '#f9e0c2', isSelected: true}, { name: 'Nest', color: '#fee7e7', isSelected: false}]} />
+            <MultipleSelect defaultValues={[{ name: 'React', color: '#c0e2fd61', isSelected: false}, { name: 'Astro', color: '#f9e0c2', isSelected: true}, { name: 'Nest', color: '#fee7e7', isSelected: false}]} />
         </TextField>
        </div>
    )

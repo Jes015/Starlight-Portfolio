@@ -1,4 +1,4 @@
-import { Cross2Icon } from "@radix-ui/react-icons"
+import { ArrowDownIcon, Cross2Icon } from "@radix-ui/react-icons"
 import clsx from "clsx"
 import { useState, type FC } from "react"
 
@@ -49,7 +49,7 @@ export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues }) => {
                                 key={value.name}
                                 onClick={handleOnClickToToggleSelectedState}
                                 data-value={value.name}
-                                className="flex select-none items-center w-fit p-1 rounded-md border cursor-pointer hover:bg-neutral-100"
+                                className="flex select-none items-center w-fit p-1 rounded-md cursor-pointer hover:bg-neutral-100"
                                 style={{
                                     backgroundColor: value.color
                                 }}
@@ -61,13 +61,18 @@ export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues }) => {
                         )
                 }
                 {
-                    selectedValues?.[0] == null && <span className="p-1 text-xs border border-transparent text-neutral-600 select-none">Select values</span>
+                    selectedValues?.[0] == null && (
+                        <div className="w-full items-center flex justify-between">
+                            <span className="p-1 text-xs text-neutral-600 select-none">Select values</span>
+                            <ArrowDownIcon className="text-neutral-600 mr-1"/>
+                        </div>
+                    )
                 }
             </div>
             <ul className={
                 clsx(
                     "peer-hover:flex transition-all hidden hover:flex relative z-[10] rounded-t-none flex-wrap border p-1 pt-5 mt-[-1.25rem] rounded-lg overflow-hidden min-w-24 gap-1 border-t-0",
-                    {'!hidden': noSelectedValues?.[0] == null}
+                    { '!hidden': noSelectedValues?.[0] == null }
                 )
             }
             >
@@ -78,7 +83,7 @@ export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues }) => {
                                 key={value.name}
                                 onClick={handleOnClickToToggleSelectedState}
                                 data-value={value.name}
-                                className="p-1 rounded-md border select-none cursor-pointer hover:bg-neutral-100"
+                                className="p-1 rounded-md select-none cursor-pointer hover:bg-neutral-100"
                                 style={{
                                     backgroundColor: value.color
                                 }}
