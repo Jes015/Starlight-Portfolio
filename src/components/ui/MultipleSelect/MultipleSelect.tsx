@@ -12,9 +12,10 @@ export type MultipleSelectValueArray = MultipleSelectValue[]
 
 interface MultipleSelectProps {
     defaultValues: MultipleSelectValueArray
+    onChange?: (data: unknown) => void
 }
 
-export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues }) => {
+export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues, onChange }) => {
     const [values, setValues] = useState<MultipleSelectValueArray>(defaultValues)
 
     const noSelectedValues = values.filter((value) => !value.isSelected)
@@ -37,6 +38,11 @@ export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues }) => {
         const newArray = values.with(valueIndex, updatedValue)
 
         setValues(newArray)
+
+
+        const selectedValues = newArray.filter((value) => value.isSelected)
+        onChange?.(selectedValues)
+
     }
 
     return (
