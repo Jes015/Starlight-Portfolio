@@ -46,8 +46,8 @@ export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues, onChang
     }
 
     return (
-        <div className="flex flex-col items-stretch gap-1 text-xs w-[12.215rem] overflow-hidden">
-            <div className="peer relative z-[20] flex flex-wrap gap-1 p-1 h-full min-h-[34px] border rounded-lg items-center">
+        <div className="flex flex-col items-stretch gap-1 text-xs w-full sm:w-[12.215rem] relative">
+            <div className="peer relative z-[20] flex flex-wrap gap-1 p-1 h-[34px] border rounded-lg items-center">
                 {
                     selectedValues
                         .map((value) => (
@@ -77,7 +77,7 @@ export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues, onChang
             </div>
             <ul className={
                 clsx(
-                    "peer-hover:flex transition-all hidden hover:flex relative z-[10] rounded-t-none flex-wrap border p-1 pt-5 mt-[-1.25rem] rounded-lg overflow-hidden min-w-24 gap-1 border-t-0",
+                    "peer-hover:flex w-full bg-white transition-all hidden hover:flex absolute top-[1.25rem] left-0 z-[10] rounded-t-none flex-wrap border p-1 pt-5 rounded-lg overflow-hidden min-w-24 gap-1 border-t-0",
                     { '!hidden': noSelectedValues?.[0] == null }
                 )
             }

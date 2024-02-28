@@ -1,10 +1,24 @@
 import { TextField } from "@/components/ui/TextField/TextField"
 import type { BaseComponentType } from "@/models"
+import clsx from "clsx"
+import { Input } from "./ui/Input"
 import { MultipleSelect } from "./ui/MultipleSelect/MultipleSelect"
 
-export const Filters: BaseComponentType = (props) => {
+export const Filters: BaseComponentType = ({ className, ...props}) => {
     return (
-        <div {...props}>
+        <div 
+            className={
+                clsx(
+                    'flex justify-end gap-2 flex-col sm:flex-row',
+                    className
+                )
+            }
+        {...props}
+        >
+            <TextField>
+                <TextField.Label>Search</TextField.Label>
+                <Input placeholder="Screen recording" />
+            </TextField>
             <TextField>
                 <TextField.Label>Techs</TextField.Label>
                 <MultipleSelect

@@ -1,3 +1,4 @@
+import { techs, type Project } from "@/models"
 import {
     DesktopIcon,
     DiscordLogoIcon,
@@ -99,3 +100,18 @@ export const jsonData: JsonData = {
         },
     },
 } as const // This is temporal, while we add the json data
+
+export type ProjectRecord = Project[]
+
+export const projectsData: ProjectRecord = [
+    {
+        date: '03-2024',
+        description: 'App to record media from the browser',
+        techs: [techs.Astro, techs.React],
+        title: 'Web Capture',
+        urls: {
+            github: '/',
+            preview: '/'
+        }
+    }
+]

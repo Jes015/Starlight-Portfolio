@@ -12,8 +12,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 autoComplete='off'
                 className={
                     clsx(
-                        'flex items-center gap-2 border border-neutral-800 bg-neutral-900 [transition-duration:0.1s] relative p-2 py-1 outline-none',
-                        readOnly ? '' : 'focus-within:bg-neutral-800 focus-within:border-neutral-700 hover:bg-neutral-800 hover:border-neutral-700 hover:drop-shadow-sm',
+                        'flex items-center border rounded-lg [transition-duration:0.1s] relative w-full sm:w-[12.215rem] h-[34px] px-2 outline-none',
                         className,
                         size2 === 'sm' ? 'h-[1.5625rem]' : '',
                         size2 === 'base' ? 'h-[2rem]' : '',

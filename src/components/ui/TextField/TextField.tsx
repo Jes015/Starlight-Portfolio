@@ -10,7 +10,7 @@ export const TextField = ({ children, className, direction = 'column' }: TextFie
   return (
         <label className={
           clsx(
-            'inline-flex w-full',
+            'inline-flex',
             { 'flex-col items-start': direction === 'column' },
             { 'items-center gap-2': direction === 'row' },
             className
