@@ -55,7 +55,7 @@ export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues, onChang
                                 key={value.name}
                                 onClick={handleOnClickToToggleSelectedState}
                                 data-value={value.name}
-                                className="flex select-none items-center w-fit p-1 rounded-md cursor-pointer hover:bg-neutral-100"
+                                className="flex select-none text-xs items-center w-fit p-1 rounded-md cursor-pointer hover:bg-neutral-100"
                                 style={{
                                     backgroundColor: value.color
                                 }}
@@ -89,7 +89,7 @@ export const MultipleSelect: FC<MultipleSelectProps> = ({ defaultValues, onChang
                                 key={value.name}
                                 onClick={handleOnClickToToggleSelectedState}
                                 data-value={value.name}
-                                className="p-1 rounded-md select-none cursor-pointer hover:bg-neutral-100"
+                                className="p-1 rounded-md text-xs select-none cursor-pointer hover:bg-neutral-100"
                                 style={{
                                     backgroundColor: value.color
                                 }}

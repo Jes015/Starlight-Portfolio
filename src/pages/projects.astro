@@ -6,13 +6,22 @@ import { projectsData } from '../data/user.data'
 ---
 
 <Layout title="Home">
-	<header>
-		<h1 class="text-4xl font-semibold">Projects</h1>
+	<header class="flex items-center justify-between">
+		<div>
+			<h1 class="text-3xl font-semibold">Projects</h1>
+			<span class="text-zinc-800">Check out my latest projects ;)</span>
+		</div>
+		<Filters client:load />
 	</header>
 	<div>
-		<div class="flex flex-col gap-4">
-			<Filters client:load />
+		<div class="flex flex-col gap-4 mt-2">
 			<div class="grid grid-cols md:grid-cols-2 gap-2 flex-wrap">
+				{
+					projectsData.map((project) => (<Project data={project} className="[flex-basis:230px] flex-shrink-0" />))
+				}
+				{
+					projectsData.map((project) => (<Project data={project} className="[flex-basis:230px] flex-shrink-0" />))
+				}
 				{
 					projectsData.map((project) => (<Project data={project} className="[flex-basis:230px] flex-shrink-0" />))
 				}
