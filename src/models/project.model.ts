@@ -1,17 +1,18 @@
 export interface Project {
-    title: string
-    description: string
-    date: string
-    techs: Tech[]
-    urls: {
-        github: string
-        preview: string
-    }
+  title: string;
+  description: string[];
+  date: string;
+  techs: Tech[];
+  urls: {
+    github: string;
+    preview: string;
+  };
+  picture_src: string;
 }
 
 export const techs = {
-    React: 'React',
-    Astro: 'Astro'
-} as const
+  React: "React",
+  Astro: "Astro",
+} as const;
 
-export type Tech = typeof techs[keyof typeof techs]
+export type Tech = (typeof techs)[keyof typeof techs];
