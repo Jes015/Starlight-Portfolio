@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "lib": ["ES2022", "ES2023.Array"],
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]

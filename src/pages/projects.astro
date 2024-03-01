@@ -1,5 +1,8 @@
 ---
+import { Project } from "@/components/Project"
+import { Filters } from "@/components/ProjectFilters"
 import Layout from "@/layouts/Layout.astro"
+import { projectsData } from '../data/user.data'
 ---
 
 <Layout title="Home">
@@ -7,6 +10,13 @@ import Layout from "@/layouts/Layout.astro"
 		<h1 class="text-4xl font-semibold">Projects</h1>
 	</header>
 	<div>
-		Projects, filters and search box
+		<div class="flex flex-col gap-4">
+			<Filters client:load />
+			<div class="grid grid-cols md:grid-cols-2 gap-2 flex-wrap">
+				{
+					projectsData.map((project) => (<Project data={project} className="[flex-basis:230px] flex-shrink-0" />))
+				}
+			</div>
+		</div>
 	</div>
 </Layout>
