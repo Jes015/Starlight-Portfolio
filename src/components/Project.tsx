@@ -24,12 +24,15 @@ export const Project: FC<ProjectProps> = ({ data, className, ...props }) => {
                 </div>
                 <span className="text-xs text-pretty">{data.description}</span>
             </header>
-            <div className="flex gap-1">
-                {
-                    data.techs.map((tech) => (
-                        <span className="text-[0.6rem] px-1 bg-neutral-100 rounded-md font-light">{tech}</span>
-                    ))
-                }
+            <div className="flex gap-1 flex-col">
+                <div className="w-full h-60 rounded-md bg-slate-300" />
+                <div className="flex gap-1">
+                    {
+                        data.techs.map((tech) => (
+                            <span className="text-[0.6rem] px-1 bg-neutral-100 rounded-md font-light">{tech}</span>
+                        ))
+                    }
+                </div>
             </div>
             <footer className="flex justify-between items-center">
                 <div className="flex gap-1">

@@ -14,14 +14,14 @@ import SidebarSection from "./SidebarSection.astro"
 
 <label
     for="hamburger-menu-input"
-    class="md:hidden absolute top-3 right-3 z-[500] cursor-pointer bg-white"
+    class="md:hidden absolute top-3 right-3 z-[500] border rounded-md cursor-pointer bg-white overflow-hidden"
     aria-label="Open sidebar menu"
 >
     <HamburgerMenuIcon
         aria-hidden="true"
         width={28}
         height={28}
-        className="p-1 border rounded-md w-8 h-8"
+        className="p-1 w-8 h-8"
     />
 </label>
 <input

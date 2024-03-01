@@ -110,8 +110,18 @@ export const projectsData: ProjectRecord = [
         techs: [techs.Astro, techs.React],
         title: 'Web Capture',
         urls: {
-            github: '/',
-            preview: '/'
+            github: 'https://github.com/Jes015/Web-Capture',
+            preview: 'https://www.web-capture.online/'
+        }
+    },
+    {
+        date: '08-2023',
+        description: 'Social network to share recipes',
+        techs: [techs.Astro, techs.React],
+        title: 'Culinary Alchemy',
+        urls: {
+            github: 'https://github.com/CulinaryAlchemy/CulinaryAlchemy',
+            preview: 'https://culinary-alchemy-web-app.vercel.app/'
         }
     }
 ]
