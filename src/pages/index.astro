@@ -1,8 +1,10 @@
 ---
 import Anchor from "@/components/ui/Anchor.astro"
 import HighlightText from "@/components/ui/HighlightText.astro"
-import { jsonData } from "@/data"
+import { jsonData, referencesData } from "@/data"
 import Layout from "@/layouts/Layout.astro"
+
+import Reference from '@/components/Reference.astro'
 ---
 
 <Layout title="Home">
@@ -10,16 +12,70 @@ import Layout from "@/layouts/Layout.astro"
 		<h1 class="text-4xl font-semibold">Hiii</h1>
 	</header>
 	<div>
-		<p class="mb-3 text-pretty text-base text-zinc-900">
-			I'm Jesus, a software developer from Colombia with over 2 years of
-			experience dedicated to studying and practicing <HighlightText>web development</HighlightText>. My
-			main focus is on <HighlightText>JavaScript</HighlightText> and <HighlightText>TypeScript</HighlightText>, and I excel in using
-			technologies like <HighlightText>React</HighlightText>, <HighlightText>Astro</HighlightText>, and <HighlightText>Nest</HighlightText>. 
-			<Anchor href={jsonData.pages.projects.url}>Check out my projects</Anchor>
-			to see concrete examples of my work and skills.
-		</p>
-		<section class="flex gap-2">
-			<h2 class="text-xl font-semibold">Skills</h2>
+		<section>
+			<p class="mb-3 text-pretty text-base text-zinc-900">
+				I'm Jesus, a software developer from Colombia with over 2 years of
+				experience dedicated to studying and practicing <HighlightText>
+					web development
+				</HighlightText>. My main focus is on <HighlightText>
+					JavaScript
+				</HighlightText> and <HighlightText>TypeScript</HighlightText>, and
+				I excel in using technologies like <HighlightText>
+					React
+				</HighlightText>, <HighlightText>Astro</HighlightText>, and <HighlightText
+				>
+					Nest
+				</HighlightText>.
+				<Anchor href={jsonData.pages.projects.url}>
+					Check out my projects
+				</Anchor>
+				to see concrete examples of my work and skills.
+			</p>
+		</section>
+		<section>
+			<section>
+				<header>
+					<h3 class="text-xl font-medium">Working on</h3>
+				</header>
+				<div class="flex flex-wrap sm:grid-cols-2 lg:grid-cols-3 gap-1">
+					<a href="/" target="_blank" class="p-1 px-2 pr-3 border rounded-md hover:underline">
+						<header class="flex items-center gap-1">
+							<div class="w-3 h-3 bg-green-400 rounded-full" />
+							<h2 class="font-medium">Web Capture</h2>
+						</header>
+					</a>
+					<a href="/" target="_blank" class="p-1 px-2 pr-3 border rounded-md hover:underline">
+						<header class="flex items-center gap-1">
+							<div class="w-3 h-3 bg-green-400 rounded-full" />
+							<h2 class="font-medium">Web Capture</h2>
+						</header>
+						<div>
+
+						</div>
+					</a>
+					<a href="/" target="_blank" class="p-1 px-2 pr-3 border rounded-md hover:underline">
+						<header class="flex items-center gap-1">
+							<div class="w-3 h-3 bg-green-400 rounded-full" />
+							<h2 class="font-medium">Web Capture</h2>
+						</header>
+						<div>
+
+						</div>
+					</a>
+				</div>
+			</section>
+		</section>
+		<section class="flex flex-col gap-1">
+			<header>
+				<h2 class="text-xl font-medium">References</h2>
+			</header>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+				{
+					referencesData.map((reference) => (
+						<Reference data={reference} />
+					))
+				}
+			</div>
 		</section>
 	</div>
 </Layout>

@@ -1,6 +1,6 @@
-import type { BaseComponentProps, FC, Project as ProjectModel } from "@/models";
-import { GitHubLogoIcon, Link2Icon } from "@radix-ui/react-icons";
-import clsx from "clsx";
+import type { BaseComponentProps, FC, Project as ProjectModel } from "@/models"
+import { GitHubLogoIcon, Link2Icon } from "@radix-ui/react-icons"
+import clsx from "clsx"
 
 interface ProjectProps extends BaseComponentProps {
   data: ProjectModel;
@@ -30,7 +30,7 @@ export const Project: FC<ProjectProps> = ({ data, className, ...props }) => {
             {data.date}
           </span>
           {data.description.map((paragraph) => (
-            <span className="text-lg text-pretty mb-2">{paragraph}</span>
+            <span className="text-lg text-pretty text-zinc-950 mb-2">{paragraph}</span>
           ))}
           <div className="flex gap-1 mt-2">
             {data.techs.map((tech) => (
