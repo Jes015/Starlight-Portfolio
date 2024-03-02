@@ -1,0 +1,35 @@
+---
+import { type Reference } from "@/models"
+import { GitHubLogoIcon } from "@radix-ui/react-icons"
+
+interface Props {
+    data: Reference
+}
+
+const { data } = Astro.props
+---
+
+<article class="flex flex-col justify-center gap-1 w-full">
+    <header class="flex justify-between">
+        <div class="flex items-center gap-1">
+            <img
+                class="w-8 rounded-full"
+                src={data.avatar}
+            />
+            <span class="font-medium">{data.name}</span>
+        </div>
+        <div class="flex items-center">
+            <a 
+                target="_blank"
+                href={data.github}
+            >
+                <GitHubLogoIcon className="hover:scale-110 transition-transform" width={17} height={17} />
+            </a>
+        </div>
+    </header>
+    <div class="px-1">
+        <p class="text-xs text-zinc-900 text-pretty">
+            {data.text}
+        </p>
+    </div>
+</article>

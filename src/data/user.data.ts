@@ -1,4 +1,4 @@
-import { techs, type Project } from "@/models";
+import { techs, type Project, type Reference } from "@/models"
 import {
   DesktopIcon,
   DiscordLogoIcon,
@@ -9,8 +9,8 @@ import {
   MagicWandIcon,
   ReaderIcon,
   TwitterLogoIcon,
-} from "@radix-ui/react-icons";
-import type { IconProps } from "@radix-ui/react-icons/dist/types";
+} from "@radix-ui/react-icons"
+import type { IconProps } from "@radix-ui/react-icons/dist/types"
 
 export interface Action {
   title: string;
@@ -177,3 +177,26 @@ export const projectsData: ProjectRecord = [
   },
 ];
 
+
+export type ReferenceRecord = Reference[]
+
+export const referencesData: ReferenceRecord = [
+  {
+    name: 'Huilen Solis',
+    avatar: 'https://avatars.githubusercontent.com/u/113150193?v=4',
+    github: 'https://github.com/Huilensolis',
+    text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam officia neque est sapiente possimus facere iste officiis perspiciatis expedita reprehenderit, dignissimos, odio atque cum nostrum dolores, doloribus incidunt? Eius, necessitatibus?'
+  },
+  {
+    name: 'Huilen Solis',
+    avatar: 'https://avatars.githubusercontent.com/u/113150193?v=4',
+    github: 'https://github.com/Huilensolis',
+    text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam officia neque est sapiente possimus facere iste officiis perspiciatis expedita reprehenderit, dignissimos, odio atque cum nostrum dolores, doloribus incidunt? Eius, necessitatibus?'
+  },
+  {
+    name: 'Huilen Solis',
+    avatar: 'https://avatars.githubusercontent.com/u/113150193?v=4',
+    github: 'https://github.com/Huilensolis',
+    text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam officia neque est sapiente possimus facere iste officiis perspiciatis expedita reprehenderit, dignissimos, odio atque cum nostrum dolores, doloribus incidunt? Eius, necessitatibus?'
+  }
+]
